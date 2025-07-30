@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de Sesión</title>
+    <!-- Bootstrap 5.1 CSS -->
+    <link href="bootstrap-5.1.3/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="fontawesome-6.7.2/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="style/styles.css">
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body class="alternate">
+    <div class="login-container">
+        <div class="login-box text-center">
+            <h1>¡Bienvenido!</h1>
+            <h4 class="mt-2 mb-4">Inicio de sesión</h4>
+            <div class="divider" style="border-top: 1px solid #dee2e6; margin: 15px 0;"></div>
+            <div class="info-box text-start mb-4">
+                <p class="mb-0">
+                    <i class="fas fa-info-circle"></i>
+                    <strong> Recuerda:</strong> Puedes colocar tu contraseña al escanear el código que se encuentra en tu gafete.
+                    <br>Si olvidaste tu contraseña y perdiste tu gafete, acude con los administradores.
+                </p>
+            </div>
+            <div class="login-fields">
+                <!-- IP -->
+                <div class="mb-3 text-start">
+                    <label for="ip" class="form-label fw-bold">IP del servidor:</label>
+                    <input type="text" class="form-control" id="ip" placeholder="IP">
+                </div>
+                <!-- Puerto + Botón Verificar -->
+                <div class="mb-3 text-start">
+                    <label for="puerto" class="form-label fw-bold">Puerto:</label>
+                    <div class="d-flex gap-2">
+                        <input type="text" class="form-control" id="puerto" placeholder="Puerto">
+                        <button type="button" style="border-radius: 10px;" class="btn btn-outline-success" id="verificarConexion">
+                            <i class="fas fa-plug"></i>
+                        </button>
+                    </div>
+                </div>
+                <!-- Usuario -->
+                <div class="mb-3 text-start">
+                    <label for="usuario" class="form-label fw-bold">Usuario:</label>
+                    <input type="text" class="form-control" id="usuario" placeholder="Usuario">
+                </div>
+                <!-- Contraseña -->
+                <div class="mb-4 text-start">
+                    <label for="passwrd" class="form-label fw-bold">Contraseña:</label>
+                    <input type="password" class="form-control" id="password" placeholder="Contraseña">
+                </div>
+                <!-- Botón Iniciar sesión -->
+                <button type="button" class="btn btn-primary btn-block w-100" id="btnLogin">
+                    <i class="fas fa-sign-in-alt me-2"></i> INICIAR SESIÓN
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap 5.1 JS Bundle con Popper -->
+    <script src="bootstrap-5.1.3/js/bootstrap.bundle.min.js"></script>
+    <!-- Script para manejar el login -->
+     <script src="JQuery/jquery-3.7.1.min.js"></script>
+    <script src="js/inicio_sesion.js"></script>
+</body>
+</html>

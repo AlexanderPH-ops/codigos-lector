@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Empleados</title>
+    <!-- Bootstrap 5.1 CSS -->
+    <link href="bootstrap-5.1.3/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="fontawesome-6.7.2/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="style/styles.css">
+</head>
+<body class="alternate">
+    <div class="login-container">
+        <div class="sucursal-info text-end">
+                Conectado a: <strong id="nombreSucursal">Sucursal XYZ</strong>
+        </div>
+        <div class="login-box">
+            <h1 class="text-center">Registro de empleados</h1>
+            <div class="divider" style="border-top: 1px solid #dee2e6; margin: 15px 0;"></div>
+            <div>
+                <div class="mb-3 text-start">
+                    <label class="form-label fw-bold">Nombre:</label>
+                    <input type="text" id="nombre" class="form-control" placeholder="Primer Nombre">
+                </div>
+                <div class="mb-3 text-start">
+                    <label class="form-label fw-bold">Apellido:</label>
+                    <input type="text" id="apellido" class="form-control" placeholder="Primer Apellido">
+                </div>
+                <div class="mb-3 text-start">
+                    <label class="form-label fw-bold">Correo:</label>
+                    <input type="email" id="EmplEmail" class="form-control" placeholder="Correo">
+                </div>
+                <div class="mb-3 text-start">
+                    <label class="form-label fw-bold">Usuario:</label>
+                    <input type="text" id="EmplUser" class="form-control" placeholder="Usuario">
+                </div>
+                <!-- Campo de contraseña con requisitos -->
+                <div class="mb-3 text-start">
+                    <label class="form-label fw-bold">Contraseña:</label>
+                    <input type="password" id="EmplPass" class="form-control" placeholder="Contraseña">
+                    <div id="requisitosContrasena" class="mt-2 small">
+                        <p class="mb-1 text-danger d-flex align-items-center gap-1" id="req-length">
+                            <i class="fas fa-circle-xmark"></i>
+                            <span>Entre 8 y 20 caracteres</span>
+                        </p>
+                        <p class="mb-1 text-danger d-flex align-items-center gap-1" id="req-mayus">
+                            <i class="fas fa-circle-xmark"></i>
+                            <span>Al menos una letra mayúscula</span>
+                        </p>
+                        <p class="mb-1 text-danger d-flex align-items-center gap-1" id="req-num">
+                            <i class="fas fa-circle-xmark"></i>
+                            <span>Al menos un número</span>
+                        </p>
+                        <p class="mb-1 text-danger d-flex align-items-center gap-1" id="req-especial">
+                            <i class="fas fa-circle-xmark"></i>
+                            <span>Al menos un carácter especial</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="btn-group-custom">
+                    <button type="button" id="add-empl" class="btn btn-success">Agregar usuario</button>
+                    <button type="button" id="edit-empl" class="btn btn-info">Editar usuario</button>
+                    <button type="button" id="delete-empl" class="btn btn-danger">Eliminar usuario</button>
+                </div>
+            </div>
+            <div class="usuarios-section">
+                Usuarios
+            </div>
+            <div class="usuarios-list">
+                <div class="usuario-item">User1</div>
+                <div class="usuario-item">User2</div>
+                <div class="usuario-item">User3</div>
+                <div class="usuario-item">User...</div>
+            </div>
+            <div class="info-box text-start mt-3">
+                <p class="mb-0">
+                    <i class="fas fa-info-circle"></i>
+                    <strong> Recuerda:</strong> Puedes registrar a tus empleados, usando un gafete con un código de barras para colocar su contraseña.
+                </p>
+            </div>
+            <button type="button" id="next" class="btn btn-primary btn-block">
+                SIGUIENTE <i class="fa-solid fa-arrow-right ms-2"></i>
+            </button>
+        </div>
+    </div>
+    <!-- Bootstrap 5.1 JS Bundle con Popper -->
+    <script src="bootstrap-5.1.3/js/bootstrap.bundle.min.js"></script>
+    <script src="js/reg_empl.js"></script>
+</body>
+</html>

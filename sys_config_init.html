@@ -1,0 +1,193 @@
+<html lang="es-MX">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuración del sistema</title>
+    <!-- Bootstrap 5.1 CSS -->
+    <link href="bootstrap-5.1.3/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="fontawesome-6.7.2/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="style/styles.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-box">
+            <h1 class="text-center">Configuración del sistema</h1>
+            <div class="divider" style="border-top: 1px solid #dee2e6; margin: 15px 0;"></div>
+            <h4 class="section-title"><strong>Configuraciones Generales</strong></h4>
+            
+            <div class="mb-3 text-start">
+                <label for="ticketValidity" class="form-label">Tiempo de validez del ticket (horas):</label>
+                <div class="input-container position-relative">
+                    <input type="text" class="form-control" id="ticketValidity" placeholder="Hrs">
+                    <div class="position-absolute" style="right: 10px; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column;">
+                        <button id="BtnUpVal" class="btn btn-link p-0"><i class="fas fa-caret-up"></i></button>
+                        <button id="BtnDownVal" class="btn btn-link p-0"><i class="fas fa-caret-down"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3 text-start">
+                <label for="validAttempts" class="form-label">Intentos válidos por ticket:</label>
+                <div class="input-container position-relative">
+                    <input type="text" class="form-control" id="validAttempts" placeholder="#">
+                    <div class="position-absolute" style="right: 10px; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column;">
+                        <button id="BtnUpAtt" class="btn btn-link p-0"><i class="fas fa-caret-up"></i></button>
+                        <button id="BtnDownAtt" class="btn btn-link p-0"><i class="fas fa-caret-down"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3 text-start">
+                <label for="unitProducts" class="form-label">Productos unitarios a escanear:</label>
+                <div class="input-container position-relative">
+                    <input type="text" class="form-control" id="unitProducts" placeholder="#">
+                    <div class="position-absolute" style="right: 10px; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column;">
+                        <button id="BtnUpUni" class="btn btn-link p-0"><i class="fas fa-caret-up"></i></button>
+                        <button id="BtnDownUni" class="btn btn-link p-0"><i class="fas fa-caret-down"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3 text-start">
+                <label for="alertMethod" class="form-label">Recibir las alertas por medio de:</label>
+                <select class="form-control" id="alertMethod">
+                    <option value="">Seleccione un método</option>
+                    <option value="email">Correo</option>
+                    <option value="sms">Sistema (Panel de administración)</option>
+                    <option value="both">Ambos</option>
+                </select>
+            </div>
+            <div class="mb-3 text-start">
+                <label for="alertEmail" class="form-label">Correo que recibe alertas:</label>
+                <input type="email" class="form-control" id="alertEmail" placeholder="admin.empresa@algo.dom.info">
+            </div>
+            <div class="mb-3 text-start d-flex justify-content-between align-items-center">
+                <label class="form-label">Activar captura de firma digital:</label>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="digitalSignature">
+                    <label class="form-check-label" for="digitalSignature">No / Sí</label>
+                </div>
+            </div>
+            <div class="mb-3 text-start d-flex justify-content-between align-items-center">
+                <label class="form-label">Activar fotografías del carrito:</label>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="cartPhotos">
+                    <label class="form-check-label" for="cartPhotos">No / Sí</label>
+                </div>
+            </div>
+            <div class="mb-4 text-start d-flex justify-content-between align-items-center">
+                <label class="form-label">Activar vista de tickets en PDF:</label>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="pdfTickets" checked>
+                    <label class="form-check-label" for="pdfTickets">No / Sí</label>
+                </div>
+            </div>
+            <div class="divider" style="border-top: 1px solid #dee2e6; margin: 15px 0;"></div>
+            <div class="d-flex justify-content-between align-items-center mb-2">
+                <h4 class="section-title mb-0"><strong>Personalización del Sistema</strong></h4>
+                <span class="help-icon">
+                    <i class="fas fa-question-circle fa-2x" role="button" data-bs-toggle="modal" data-bs-target="#customHelpModal"></i>
+                </span>
+            </div>
+            <div class="mb-3 text-start">
+                <label class="form-label"><h5>Logos del Sistema:</h5></label>
+                <div class="d-flex gap-2">
+                    <button id="BtnLogo" class="btn btn-secondary w-50"><i class="fas fa-image me-2"></i>Seleccione Logo</button>
+                    <button id="BtnIso" class="btn btn-secondary w-50"><i class="fas fa-image me-2"></i>Seleccione Isologo</button>
+                </div>
+                <!-- Inputs ocultos para seleccionar archivos -->
+                <input type="file" id="inputLogo" accept="image/*" style="display: none;">
+                <input type="file" id="inputIso" accept="image/*" style="display: none;">
+                <!-- Contenedores para mostrar las imágenes seleccionadas -->
+                <div class="mt-3">
+                    <h5>Vista previa:</h5>
+                    <div class="row mt-3">
+                        <div class="col-md-6 text-center">
+                            <p><strong>Logo:</strong></p>
+                            <img id="previewLogo" src="#" alt="Preview Logo" class="img-fluid border rounded p-2" style="max-width: 200px; display: none;">
+                        </div>
+                        <div class="col-md-6 text-center">
+                            <p><strong>Isologo:</strong></p>
+                            <img id="previewIso" src="#" alt="Preview Isologo" class="img-fluid border rounded p-2" style="max-width: 200px; display: none;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3 text-start">
+                <label class="form-label"><h5>Colores del Sistema:</h5></label>
+            </div>
+            <div class="mb-3 text-start d-flex justify-content-between align-items-center">
+                <label class="form-label">Color Primario:</label>
+                <input 
+                    type="color" 
+                    id="colorPrimario" 
+                    value="#0d6efd" 
+                    class="color-picker" 
+                    style="width: 150px; height: 50px; border-radius: 8px; cursor: pointer; border: 1px solid #ced4da;"
+                >
+            </div>
+            <div class="mb-4 text-start d-flex justify-content-between align-items-center">
+                <label class="form-label">Color Secundario:</label>
+                <input 
+                    type="color" 
+                    id="colorSecundario" 
+                    value="#9c27b0" 
+                    class="color-picker" 
+                    style="width: 150px; height: 50px; border-radius: 8px; cursor: pointer; border: 1px solid #ced4da;"
+                >
+            </div>
+            <button id="BtnEnd" class="btn btn-primary btn-block"><i class="fas fa-check-circle me-2"></i>Finalizar configuración</button>
+            <a href="index.html" class="btn btn-outline-primary mt-3 w-100"><i class="fas fa-forward me-2"></i>Omitir</a>
+        </div>
+    </div>
+    <!-- Modal Personalizado -->
+    <div class="modal fade" id="customHelpModal" tabindex="-1" aria-labelledby="customHelpModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered custom-modal-dialog">
+        <div class="modal-content custom-modal-style">
+        <div class="modal-header">
+            <h5 class="modal-title" id="customHelpModalLabel">Ayuda con la personalización</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body p-0">
+            <!-- Logos -->
+            <h5 class="section-title mt-3 px-3">Logos</h5>
+            <div class="d-flex flex-wrap border-bottom py-3">
+            <div class="col-md-6 px-4">
+                <h6 class="fw-bold">Logo</h6>
+                <p class="text-muted">Engloba Logotipo e Isotipo siendo solo texto o solo símbolo</p>
+                <div class="text-center my-2">
+                <img src="imagenes/logo dacwhite.png" alt="Logo" style="width: 150px; height: 150px; object-fit: contain;">
+                </div>
+            </div>
+            <div class="col-md-6 px-4">
+                <h6 class="fw-bold">Isologo</h6>
+                <p class="text-muted">Engloba Imagotipo e Isologo siendo solo texto y símbolo combinados</p>
+                <div class="text-center my-2">
+                    <img src="imagenes/logodac.png" alt="Isologo" style="max-width: 90%; max-height: 90%; object-fit: contain;">
+            </div>
+            </div>
+            <!-- Colores -->
+            <h5 class="section-title mt-3 px-3">Colores</h5>
+            <div class="d-flex flex-wrap py-3">
+            <div class="col-md-6 px-4">
+                <h6 class="fw-bold">Primario</h6>
+                <p class="text-muted">Es el color más utilizado en el sistema, con distintas tonalidades. Se usa en elementos como:</p>
+                <ul class="text-muted fst-italic">
+                <li>Barra de navegación de la pantalla principal</li>
+                <li>Botones (Algunos)</li>
+                <li>Títulos</li>
+                </ul>
+            </div>
+            <div class="col-md-6 px-4">
+                <h6 class="fw-bold">Secundario</h6>
+                <p class="text-muted">Color usado solamente en las tablas de información.</p>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+    <!-- Bootstrap 5.1 JS Bundle con Popper -->
+    <script src="bootstrap-5.1.3/js/bootstrap.bundle.min.js"></script>
+    <script src="JQuery/jquery-3.7.1.min.js"></script>
+    <script src="js/sys_config_init.js"></script>
+</body>
+</html>
